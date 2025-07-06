@@ -67,6 +67,14 @@ public class GameManager {
 
     }
 
+    public int getTime() {
+        return game_time;
+    }
+
+    public GameStatus getStatus() {
+        return status;
+    }
+
     public enum GameStatus {
         WAIITNG(0, "待機中"),
         CONNTING(1, "カウント中"),
