@@ -1,0 +1,4 @@
+name: Tag
+version: '1.0-SNAPSHOT'
+main: snowsan0113.tag.Tag
+api-version: '1.20'
