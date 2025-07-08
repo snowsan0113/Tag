@@ -13,3 +13,6 @@ commands:
   tag_team:
     description: チームに関するコマンド
     permission: snowsan0113.tag.command.team
+  tag_mission:
+    description: ミッションに関するコマンド
+    permission: snowsan0113.tag.command.mission
