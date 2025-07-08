@@ -28,6 +28,9 @@ public class TeamManager {
         Team oni = new_scoreboard.registerNewTeam("oni");
         oni.setColor(GameTeam.ONI.getColor());
         team_map.put(GameTeam.ONI, oni);
+        Team prison = new_scoreboard.registerNewTeam("prison");
+        prison.setColor(GameTeam.PRISON.getColor());
+        team_map.put(GameTeam.PRISON, prison);
     }
 
     public static TeamManager getInstance() {
@@ -48,7 +51,8 @@ public class TeamManager {
 
     public enum GameTeam {
         ONI(ChatColor.RED, "鬼"),
-        RUN(ChatColor.WHITE, "逃走者");
+        RUN(ChatColor.WHITE, "逃走者"),
+        PRISON(ChatColor.GRAY, "牢獄");
 
         private final ChatColor color;
         private final String team_string;
