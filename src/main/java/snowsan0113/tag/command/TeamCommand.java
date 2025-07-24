@@ -1,5 +1,6 @@
 package snowsan0113.tag.command;
 
+import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -14,8 +15,8 @@ public class TeamCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String s, String[] args) {
         if (cmd.getName().equalsIgnoreCase("tag_team")) {
             TeamManager team = TeamManager.getInstance();
-            Team oni = team.getTeam(TeamManager.GameTeam.ONI);
-            Team run = team.getTeam(TeamManager.GameTeam.RUN);
+            Team oni = team.getConvertBoardTeam(TeamManager.GameTeam.ONI);
+            Team run = team.getConvertBoardTeam(TeamManager.GameTeam.RUN);
             if (args[0].equalsIgnoreCase("list")) {
                 StringBuilder builder = new StringBuilder();
 
@@ -32,11 +33,11 @@ public class TeamCommand implements CommandExecutor {
             }
             else if (args[0].equalsIgnoreCase("join")) {
                 if (args[1].equalsIgnoreCase("oni")) {
-                    oni.addEntry(args[2]);
+                    team.joinTeam(TeamManager.GameTeam.ONI, Bukkit.getPlayer(args[2]));
                     ChatUtil.sendMessage(sender, "鬼チームに参加させました。");
                 }
                 else if (args[1].equalsIgnoreCase("run")) {
-                    run.addEntry(args[2]);
+                    team.joinTeam(TeamManager.GameTeam.RUN, Bukkit.getPlayer(args[2]));
                     ChatUtil.sendMessage(sender, "逃走者チームに参加させました。");
                 }
             }
